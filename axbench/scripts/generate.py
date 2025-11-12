@@ -316,6 +316,7 @@ def generate_latent(generate_args, args):
     # Create a new OpenAI client.
     client = AsyncOpenAI(
         api_key=os.environ.get("OPENAI_API_KEY"),
+        base_url=os.environ.get("OPENAI_BASE_URL"),
         timeout=60.0,
         http_client=httpx.AsyncClient(
             limits=httpx.Limits(
@@ -389,6 +390,7 @@ def generate_training(args, generate_args):
     # Create a new OpenAI client.
     client = AsyncOpenAI(
         api_key=os.environ.get("OPENAI_API_KEY"),
+        base_url=os.environ.get("OPENAI_BASE_URL"),
         timeout=60.0,
         http_client=httpx.AsyncClient(
             limits=httpx.Limits(
@@ -564,6 +566,7 @@ def generate_dpo_training(args, inference_args):
     # Create a new OpenAI client.
     client = AsyncOpenAI(
         api_key=os.environ.get("OPENAI_API_KEY"),
+        base_url=os.environ.get("OPENAI_BASE_URL"),
         timeout=60.0,
         http_client=httpx.AsyncClient(
             limits=httpx.Limits(
