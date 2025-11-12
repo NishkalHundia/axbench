@@ -294,6 +294,7 @@ def infer_steering(args, rank, world_size, device, logger, training_args, genera
     # Create a new OpenAI client.
     lm_client = AsyncOpenAI(
         api_key=os.environ.get("OPENAI_API_KEY"),
+        base_url=os.environ.get("OPENAI_BASE_URL"),
         timeout=60.0,
         http_client=httpx.AsyncClient(
             limits=httpx.Limits(
@@ -562,6 +563,7 @@ def infer_latent(args, rank, world_size, device, logger, training_args, generate
     # Create a new OpenAI client.
     client = AsyncOpenAI(
         api_key=os.environ.get("OPENAI_API_KEY"),
+        base_url=os.environ.get("OPENAI_BASE_URL"),
         timeout=60.0,
         http_client=httpx.AsyncClient(
             limits=httpx.Limits(
@@ -768,6 +770,7 @@ def infer_latent_imbalance(args, rank, world_size, device, logger, training_args
     # Create a new OpenAI client.
     client = AsyncOpenAI(
         api_key=os.environ.get("OPENAI_API_KEY"),
+        base_url=os.environ.get("OPENAI_BASE_URL"),
         timeout=60.0,
         http_client=httpx.AsyncClient(
             limits=httpx.Limits(
@@ -928,6 +931,7 @@ def infer_latent_on_train_data(args, rank, world_size, device, logger, training_
     # Create a new OpenAI client.
     client = AsyncOpenAI(
         api_key=os.environ.get("OPENAI_API_KEY"),
+        base_url=os.environ.get("OPENAI_BASE_URL"),
         timeout=60.0,
         http_client=httpx.AsyncClient(
             limits=httpx.Limits(

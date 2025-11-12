@@ -357,6 +357,7 @@ def eval_steering_single_task(args_tuple):
     # Create LanguageModel instance within the worker process
     client = AsyncOpenAI(
         api_key=os.environ.get("OPENAI_API_KEY"),
+        base_url=os.environ.get("OPENAI_BASE_URL"),
         timeout=60.0,
         http_client=httpx.AsyncClient(
             limits=httpx.Limits(
